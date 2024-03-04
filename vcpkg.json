@@ -1,0 +1,9 @@
+{
+  "name": "fluid-rigid",
+  "version-string": "0.1.0",
+  "description": "FluidRigidCoupling2D by C.Batty",
+  "dependencies": [
+    "freeglut",
+    "eigen3"
+  ]
+}

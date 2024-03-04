@@ -10,7 +10,6 @@
 #include <functional>
 #include <fstream>
 #include "Eigen/Sparse"
-#include "Eigen/SparseExtra"
 
 float fraction_inside(float phi_left, float phi_right);
 void extrapolate(Array2f& grid, Array2c& valid);
@@ -847,17 +846,17 @@ void FluidSim::solve_pressure(float dt) {
 
    Eigen::SimplicialLDLT< Eigen::SparseMatrix<double> > Esolver;
    Esolver.compute(Ematrix);
-   if (Esolver.info() != Eigen::Success) {
-      std::cout << "Eigen factorization failed.\n";
-      Eigen::saveMarket(Ematrix, "pressurematrix.matrix");
-      exit(0);
-   }
+//   if (Esolver.info() != Eigen::Success) {
+//      std::cout << "Eigen factorization failed.\n";
+//      Eigen::saveMarket(Ematrix, "pressurematrix.matrix");
+//      exit(0);
+//   }
    Eigen::VectorXd pressure = Esolver.solve(Erhs);
-   if (Esolver.info() != Eigen::Success) {
-      std::cout << "Eigen solve failed.\n";
-      Eigen::saveMarket(Ematrix, "pressurematrix.matrix");
-      exit(0);
-   }
+//   if (Esolver.info() != Eigen::Success) {
+//      std::cout << "Eigen solve failed.\n";
+//      Eigen::saveMarket(Ematrix, "pressurematrix.matrix");
+//      exit(0);
+//   }
 
 
 
@@ -1161,17 +1160,17 @@ void FluidSim::solve_pressure_indefinite(float dt) {
 
    Eigen::SimplicialLDLT< Eigen::SparseMatrix<double> > Esolver;
    Esolver.compute(Ematrix);
-   if (Esolver.info() != Eigen::Success) {
-      std::cout << "Eigen factorization failed.\n";
-      Eigen::saveMarket(Ematrix, "pressurematrix.matrix");
-      exit(0);
-   }
+//   if (Esolver.info() != Eigen::Success) {
+//      std::cout << "Eigen factorization failed.\n";
+//      Eigen::saveMarket(Ematrix, "pressurematrix.matrix");
+//      exit(0);
+//   }
    Eigen::VectorXd pressure = Esolver.solve(Erhs);
-   if (Esolver.info() != Eigen::Success) {
-      std::cout << "Eigen solve failed.\n";
-      Eigen::saveMarket(Ematrix, "pressurematrix.matrix");
-      exit(0);
-   }
+//   if (Esolver.info() != Eigen::Success) {
+//      std::cout << "Eigen solve failed.\n";
+//      Eigen::saveMarket(Ematrix, "pressurematrix.matrix");
+//      exit(0);
+//   }
 
 
 
